@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Assignment-3-Javascript</title>
+  </head>
+  <body onload="qualification(),experience(),languages()">
+    <div><label for="fname">First Name: </label></div>
+    <div><input type="text" name="fname" id="fname"></div>
+	<br>
+    <div><label for="lname">Last Name: </label></div>
+    <div><input type="text" name="lname" id="lname"></div>
+	<br>
+    <div><label for="email">Email: </label></div>
+    <div><input type="email" name="eamil" id="email"></div>
+	<br>
+    <div><label for="contact">Contact Number: </label></div>
+    <div><input type="number" name="contact" id="contact"><div>
+	<br>
+    <div>Address:</div>
+    <div><textarea name="address" id="address"></textarea></div>
+	<br>
+    <div><label for="uname">Username: </label></div>
+    <div><input type="text" name="uname" id="uname"></div>
+	<br>
+    <div><label for="pass">Password: </label><div>
+    <div><input type="password" name="pass" id="pass"><div>
+	<br>
+    <div>Gender:</div>
+    <div><input type="radio" name="gender" value="male" id="male">Male</input>
+    <input type="radio" name="gender" value="female" id="female">Female</input></div>
+	<br>
+
+  <div>Qualification:</div>
+  <script>
+  function qualification()
+  {
+  var qualification = ["--Select--", "ENGINEERING", "BCA/MCA","MSC-IT","OTHER"];
+  }
+  </script>
+  <div><select class="qualification" name="qualification" id="qualification">
+      <option disabled selected>--Select--</option>
+      <option value="Engineering">ENGINEERING</option>
+      <option value="bca/mca">BCA/MCA</option>
+      <option value="mscit">MSC-IT</option>
+      <option value="other">OTHER</option>
+  </select></div>
+  <br>
+
+  <div>Experience:</div> 
+  <script>
+  function experience()
+     {
+     var experience = ["none", "FRESHER","EXPERIENCED"];
+     }
+    </script>
+    <div><select class="experience" name="experience" id="experience">
+      <option disabled selected>--Select--</option>
+      <option value="none">None</option>
+      <option value="fresher">FRESHER</option>
+      <option value="exprienced">EXPRIENCED</option>
+    </select></div>
+    <br>
+
+    <div>Coding Languages:<div>
+    <script>
+  function languages()
+    {
+    var languages = [{LanguageName:"c/c++",IsEnabled:false},
+                     {LanguageName:"java", IsEnabled:true},
+                     {LanguageName:"c#", IsEnabled:true},
+                     {LanguageName:"php",IsEnabled:false},
+                     {LanguageName:"python", IsEnabled:false}];
+   if(languages[1].IsEnabled == true)
+    {
+      document.getElementById("java").checked = true;
+    }
+   if(languages[2].IsEnabled == true)
+    {
+      document.getElementById("c#").checked = true;
+    }
+   }
+  </script>
+    <div><input type="checkbox" name="c/c++" value="c/c++" id="c/c++">C/C++</div>
+    <div><input type="checkbox" name="java" value="java" id="java">Java</div>
+    <div><input type="checkbox" name="c#" value="c#" id="c#">C#</div>
+    <div><input type="checkbox" name="php" value="php" id="php">PHP</div>
+    <div><input type="checkbox" name="python" value="python" id="python">Python</div>
+	  <br>
+
+    <div><input type="submit" name="submitform" value="Submit" onclick="getdata()"></div>
+
+  <script>
+  function getdata()
+  {
+  var cvalue="";
+  var data = {fname : document.getElementById("fname").value,
+              lname : document.getElementById("lname").value,
+              email : document.getElementById("email").value,
+              contact : document.getElementById("contact").value,
+              address : document.getElementById("address").value,
+              uname : document.getElementById("uname").value,
+              pass : document.getElementById("pass").value,
+              get gender() {
+                if (document.getElementById("male").checked) 
+                  {
+                    return document.getElementById("male").value;
+                  }
+                  return document.getElementById("female").value;},
+              qualification : document.getElementById("qualification").value,
+              experience : document.getElementById("experience").value,
+              get language() {
+                if (document.getElementById("c/c++").checked) 
+                  {
+                    cvalue = cvalue + document.getElementById("c/c++").value;
+                  }
+                if (document.getElementById("java").checked) 
+                  {
+                    cvalue = cvalue + document.getElementById("java").value;
+                  }
+                if (document.getElementById("c#").checked) 
+                  {
+                    cvalue = cvalue + document.getElementById("c#").value;
+                  }
+                if (document.getElementById("php").checked) 
+                  {
+                    cvalue = cvalue + document.getElementById("php").value;
+                  }
+                if (document.getElementById("python").checked)
+                  {
+                    cvalue = cvalue + document.getElementById("python").value;
+                  }
+                return cvalue;
+                }
+              };
+
+  console.log(data.fname);
+  console.log(data.lname);
+  console.log(data.email);
+  console.log(data.contact);
+  console.log(data.address);
+  console.log(data.uname);
+  console.log(data.pass);
+  console.log(data.gender);
+  console.log(data.qualification);
+  console.log(data.experience);
+  console.log(data.language);
+}
+ </script>
+</body>
+</html>
